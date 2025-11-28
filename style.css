@@ -1,0 +1,344 @@
+/* IMPORT: Premium Fonts for a "Coffee Shop" vibe */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700;900&display=swap');
+
+:root {
+  /* --- THEME COLORS (Extracted from your Image) --- */
+  
+  /* 1. Background: Pure Clean White */
+  --bg: #ffffff;
+  
+  /* 2. Secondary Background: Very subtle warm wash for sidebar */
+  --bg-soft: #fff9f5;
+  
+  /* 3. Main Text: Dark Roast Coffee color */
+  --text: #2c211e;
+  
+  /* 4. Muted Text: Grey for descriptions */
+  --muted: #7f8c8d;
+  
+  /* 5. Border: Light orange-ish grey */
+  --border: #eee0d8;
+  
+  /* 6. Accent: THE BURNT ORANGE (Matches "Hot Coffee" header) */
+  --accent: #d35400;
+  
+  /* 7. Price Color: THE RED (Matches the price list) */
+  --price-color: #c0392b;
+  
+  /* 8. Brand Box: The Dark Maroon from the logo background */
+  --brand-dark: #4a181a;
+  
+  /* Layout Variables */
+  --radius: 8px; 
+  --shadow: 0 4px 15px rgba(211, 84, 0, 0.08); /* Subtle orange glow shadow */
+  --gap: 20px;
+  --max-width: 980px;
+  --mobile-cat-height: 54px;
+}
+
+/* base */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Font Stack: Lato is clean and easy to read like a modern menu */
+  font-family: 'Lato', sans-serif; 
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------
+   TYPOGRAPHY (Upgraded from the image)
+   -------------------------------------------------- */
+h1, h2, h3, .section-title, .title {
+  /* Playfair Display looks like a high-end magazine header */
+  font-family: 'Playfair Display', serif;
+}
+
+/* header */
+.main-header {
+  border-bottom: 2px solid var(--accent); /* Orange line at top */
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.title { 
+  font-size: 24px; 
+  margin: 0; 
+  color: var(--accent); /* Orange Title */
+  font-weight: 700;
+}
+
+/* brand logo tweak */
+.brand-logo {
+  height: 50px;
+  width: auto;
+  border-radius: 4px;
+}
+
+/* burger */
+.burger {
+  background: transparent;
+  border: 0;
+  font-size: 24px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* mobile horizontal categories */
+.mobile-cats {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  overflow: hidden;
+}
+.mobile-cats-inner {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  overflow-x: auto;
+}
+.cat-pill {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.cat-pill.active {
+  background: var(--accent); /* Orange Pill */
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* overall layout */
+.layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: var(--gap);
+  padding: 12px;
+}
+
+/* sidebar */
+.sidebar {
+  min-width: 180px;
+  width: 220px;
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  background: var(--bg-soft);
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 90px);
+  overflow: auto;
+  display: none;
+}
+
+.section-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.section-list li {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  transition: 0.2s;
+}
+.section-list li:hover { background: rgba(211, 84, 0, 0.05); color: var(--accent); }
+.section-list li.active { 
+  background: var(--accent); /* Orange Sidebar Active */
+  color: #fff; 
+}
+
+/* main content */
+.food-sections-container {
+  flex: 1;
+  padding: 6px 6px 40px 6px;
+}
+
+/* section block */
+.menu-section { margin-bottom: 40px; }
+
+.section-title { 
+  font-size: 28px; 
+  margin: 0 0 20px 0; 
+  color: var(--accent); /* Orange Section Headers like "Hot Coffee" */
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+/* grid cards */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.menu-item-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 15px;
+  padding: 12px;
+  transition: transform 0.2s;
+}
+.menu-item-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Circular images look great for coffee */
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 2px solid var(--bg-soft);
+}
+
+.item-body { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+  flex: 1; 
+}
+
+.item-name { 
+  font-size: 16px; 
+  font-weight: 700; 
+  margin: 0; 
+  color: var(--text);
+}
+
+.item-desc { 
+  font-size: 13px; 
+  color: var(--muted); 
+  margin: 0; 
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.item-footer { margin-top: 4px; }
+.item-price { 
+  color: var(--price-color); /* The Red Price from your image */
+  font-weight: 900; 
+  font-size: 16px;
+}
+
+/* --------------------------------------------------
+   ADMIN / OWNER BUTTON
+   -------------------------------------------------- */
+.edit-fab {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent); /* Orange Button */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+.edit-fab:hover {
+  background-color: #ba4a00; /* Darker orange on hover */
+}
+
+/* --------------------------------------------------
+   POPUP STYLES
+   -------------------------------------------------- */
+.owner-popup {
+  position: fixed;
+  bottom: 80px; 
+  right: 20px; /* Or centered if you prefer */
+  width: 280px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  z-index: 2000;
+  border: 2px solid var(--accent);
+  animation: slideUp 0.5s ease-out;
+}
+/* Center popup on mobile to match button */
+@media (max-width: 600px) {
+  .owner-popup {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+}
+
+.popup-content h3 { margin-top: 0; color: var(--accent); font-family: 'Playfair Display', serif; }
+.popup-content p { font-size: 14px; line-height: 1.5; color: #333; }
+
+.got-it-btn {
+  background: var(--brand-dark); /* Maroon button for contrast */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.arrow-down {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid var(--accent);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* responsive rules */
+@media (max-width: 900px) {
+  .layout { display: block; padding: 0 10px 80px 10px; }
+  .sidebar { display: none; }
+  .mobile-cats { display: block; }
+  .item-image { width: 70px; height: 70px; } /* Slightly smaller on mobile */
+}
+
+@media (min-width: 901px) {
+  .mobile-cats { display: none; }
+  .sidebar { display: block; }
+  .layout { padding-top: 20px; }
+}
